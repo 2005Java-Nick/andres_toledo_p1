@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TRMS - Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="dashboard.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="main-container container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">TRMS</a>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li id="dashboard-new-application"><a href="#">New Application</a></li>
+  		<li id="dashboard-status"><a href="#">Application Status</a></li>
+       <!-- <li id="dashboard-inbox"><a href="#">Inbox</a></li>-->
+        <li id="dashboard-admin"><a href="#">Admin</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      	<li id="dashboard-welcome"><a href="#" id="welcome"></a></li>
+        <!--  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Create Account</a></li>-->
+        <li><a onclick="signOut()"><span class="glyphicon glyphicon-log-in"></span> Sign Out</a></li>
+      </ul>
+    </div>
+	
+		<div class="dashboard-pan dashboard-pan-item" id="new-application-div-general">
+			<div class="container-fluid text-center">
+				<h1 class="lab-dashboard dashboard-pan-item">Tuition Reimbursement Application</h1>	
+			</div>
+			
+			<form method="post" class="form-group container-fluid text-center" action="\TRMS\SuApSe" enctype="multipart/form-data" id="new-application-form" data-toggle="validator">
+				<div class="row form-content">
+					
+					<div class="date-div col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-start-date" class="control-label" for="start-date">Start Date : </label>
+						<input class="input form-control input-txt" name="start-date" id="start-date" placeholder="Start date" title="Select course start date" readonly required>
+					</div>
+					
+					<div class="date-div col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-end-date" class="control-label" for="end-date">End Date : </label>
+						<input class="input form-control input-txt" name="end-date" id="end-date" placeholder="End date" title="Select course end date" readonly required>	
+					</div>
+					
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-cost" class="control-label" for="cost">Cost($) : </label>
+						<input class="input form-control input-txt" name="cost" id="cost" placeholder="Example: 100.00" pattern="^[0-9]+.[0-9]{2}" title="Enter cost of the course" required>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 input-group has-feedback">
+  					
+    					<label class="input-group-text control-label" for="course-type">Type of Course : </label>
+  					
+  						<select class="input custom-select form-control input-txt" name="course-type" id="course-type" required>
+    						<option selected></option>
+						    <option value="1">University Course</option>
+						    <option value="2">Seminar</option>
+						    <option value="3">Certification Preparation Class</option>
+						    <option value="4">Certification</option>
+						    <option value="5">Technical Training</option>
+						    <option value="6">Other</option>
+  						</select>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-description" class="control-label" for="description">Course Description : </label>
+						<input class="input form-control input-txt" name="description" id="description" placeholder="Example: Java Fundamentals" pattern="^[a-zA-Z0-9 ]+$" title="Enter course description do not use any special characters" required>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 input-group has-feedback">
+  					
+    					<label class="control-label" for="course-location">Course Location : </label>
+  						
+  						<select class="input custom-select form-control input-txt" name="course-location" id="course-location" required>
+							
+  						</select>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-description" class="control-label" for="grading-format">Grading Format : </label>
+						<input class="input form-control input-txt" name="grading-format" id="grading-format" placeholder="Example: Graded over 100%" title="Enter grading format description" required>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-description" class="control-label" for="passing-grade">Passing Grade : </label>
+						<input class="input form-control input-txt" name="passing-grade" id="passing-grade" placeholder="Example:80%" title="Enter passing grade description" required>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12">
+      					<label for="Upload file">Upload Relevant Document:</label> 
+      					<input type="file" accept=".pdf,.png,.jpg,.txt,.doc,.docx" class="input form-control input-txt" name="file" id="upload" size="50" required/>
+      					<small>Valid formats : .pdf .png .jpg .txt .doc .docx</small>
+     				</div>
+     				
+     				<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<input type="hidden" class="input form-control input-txt" name="session" id="session" readonly required>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<input type="hidden" class="input form-control input-txt" name="username" id="username" readonly required>
+					</div> 
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<input type="hidden" class="input form-control input-txt" name="filename" id="filename" readonly required>
+					</div> 
+     				  
+     				<div class="row ">
+						<div class="col-lg-12 col-md-12 col-sm-12"> 
+							<input type="submit" class="btn btn-success btn-primary btn-submit login-component" value="Submit Application">
+						</div> 
+					</div>
+     				
+				</div>	
+			</form>
+			
+		</div>
+		
+		<div class="dashboard-pan dashboard-pan-item" id="status-div-general">
+			<div class="container-fluid text-center">
+				<h1 class="lab-dashboard dashboard-pan-item">Application Status</h1>	
+			</div>
+			<table class="table">
+			  	<thead>
+				    	<tr>
+				    		<th scope="col">Reference #</th>
+					    	<th scope="col">Course</th>
+					    	<th scope="col">Submission Date</th>
+					    	<th scope="col">Start Date</th>
+					    	<th scope="col">Course Cost</th>
+					    	<th scope="col">Reimbursement Amount</th>
+					    	<th scope="col">Status</th>
+				    	</tr>
+			  	</thead>
+			  	<tbody id="table-body">
+
+			 	 </tbody>
+			</table>	
+			
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="dashboard-pan dashboard-pan-item" id="inbox-div-general">
+			<div class="container-fluid text-center">
+				<h1 class="lab-dashboard dashboard-pan-item">Inbox</h1>	
+			</div>
+		</div>
+		
+		<div class="dashboard-pan dashboard-pan-item" id="admin-div-general">
+			<div class="container-fluid text-center">
+				<h1 class="lab-dashboard dashboard-pan-item">Admin</h1>	
+			</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="container-fluid text-center">
+				<h3 class="lab-dashboard dashboard-pan-item">Admin Application Requests</h3>	
+			</div>
+			<table class="table">
+			  	<thead>
+				    	<tr>
+				    		<th scope="col">Reference #</th>
+				    		<th scope="col">First Name</th>
+				    		<th scope="col">Last Name</th>
+					    	<th scope="col">Course</th>
+					    	<th scope="col">Submission Date</th>
+					    	<th scope="col">Start Date</th>
+					    	<th scope="col">Course Cost</th>
+					    	<th scope="col">Reimbursement Amount</th>
+					    	<th scope="col">Status</th>
+					    	<th scope="col">Passing Grade</th>
+					    	<th scope="col">Final Grade</th>
+					    	<th scope="col">isPresentation</th>
+				    	</tr>
+			  	</thead>
+			  	<tbody id="table-body-admin">
+
+			 	 </tbody>
+			</table>	
+			
+		</div>  
+		<div  class="dashboard-pan form-group container-fluid text-center" id="new-user-form" data-toggle="validator">
+				<div class="row form-content">
+					
+					<div >
+						<h3 class="lab-dashboard dashboard-pan-item">Add User</h3>	
+					</div>
+					
+					<div class="date-div col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+						<label id="lab-start-date" class="control-label" for="user-email">Employee email: </label>
+						<input class="input form-control input-txt" name="user-email" id="user-email" placeholder="User email" title="Select course start date" required>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 input-group has-feedback">
+  					
+    					<label class="input-group-text control-label" for="user-role">User role : </label>
+  					
+  						<select class="input custom-select form-control input-txt" name="user-role" id="user-role" required>
+    						<option selected></option>
+						    <option value="1">Employee</option>
+						    <option value="2">Supervisor</option>
+						    <option value="3">Direct Manager</option>
+						    <option value="4">Benefits Coordinator</option>
+						    <option value="5">System Admin</option>
+  						</select>
+					</div>
+					
+					<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 input-group has-feedback">
+  					
+    					<label class="input-group-text control-label" for="user-direct-manager">Direct Manager: </label>
+  					
+  						<select class="input custom-select form-control input-txt" name="user-direct-manager" id="user-direct-manager" required>
+    						<option selected></option>
+
+  						</select>
+					</div>
+					
+     				  
+     				<div class="row ">
+						<div class="col-lg-12 col-md-12 col-sm-12"> 
+							<input type="button" onclick="createUserAdmin()" class="btn btn-success btn-primary btn-submit login-component" value="Submit Application">
+						</div> 
+					</div>
+     				
+				</div>	
+			</div>
+    	
+    	<div class="dashboard-pan dashboard-pan-item" id="error-div-general">
+			<div class="container-fluid text-center">
+				<h1 class="lab-dashboard dashboard-pan-item">You do not have the proper permissions to access this tab please contact your system administrator for more information</h1>	
+			</div>
+		</div>  
+    
+  </div>
+</nav>
+
+
+
+			<!-- 
+				<ul class="nav">    
+				          <li class="profile-header nav-item img-user-container">
+				        	<img class="img-user rounded mx-auto d-block "src="/TRMS/img/default-user.png" alt="">
+				          </li>
+				          <li class="nav-item active" id="new-application">
+				          	<img alt="" class="img-dash mx-auto d-block" src="/TRMS/img/dash.jpg"> 
+				            <h4 class="nav-link ">New Application</h4>
+				          </li>
+				          <li class="nav-item" id="application-status">
+				          <img alt="" class="img-dash mx-auto d-block" src="/TRMS/img/status.png">
+				            <h4 class="nav-link">Application Status</h4>
+				          </li>
+				          <li class="nav-item" id="dashboard-inbox">
+				          <img alt="" class="img-dash mx-auto d-block" src="/TRMS/img/inbox.png">
+				            <h4 class="nav-link">Inbox</h4>
+				          </li>
+				          <li class="nav-item" onclick="signOut()">
+				          <img alt="" class="img-dash mx-auto d-block" src="/TRMS/img/signout.png"> 
+				            <h4 class="nav-link">Sign Out</h4> 
+				          </li>
+				</ul>
+				 -->
+</body>
+</html>

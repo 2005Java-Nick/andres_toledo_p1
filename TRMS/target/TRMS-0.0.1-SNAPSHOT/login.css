@@ -1,0 +1,46 @@
+.bg {
+  height: 100vh;
+  min-height: 500px;
+  /* The image used */
+  background-image: url("img/bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+.btn-submit{
+	width: 100%;
+}
+.form-link-label{
+	font-size: small;
+	
+}
+
+.login-component{
+	padding-bottom: 1%;
+}
+
+.login-container{
+
+	background-color: white;
+	opacity: 0.9;
+	border:solid;
+	border-color:#3c8a99;
+	border-radius:10%;
+}
+.logo{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	align-content:space-between;
+	width: 15%;
+}
+.logo-label{
+	padding-bottom: 2%;
+	color: #f1f7f7;
+}
+
+.label-header{
+	padding-top: 5%;
+}

@@ -1,0 +1,141 @@
+.bg {
+  height: 100vh;
+  min-height: 500px;
+  /* The image used */
+  background-image: url("img/bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
+.lab-dashboard{
+	color: #3c8a99;
+}
+
+.navbar-inverse{
+	background-color: #3c8a99;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.nav
+{
+	color: white;
+}
+
+.dashboard-pan{
+	display: none;
+	background-color: white;
+	margin-top: 5px;
+	height: 100vh;
+	border:thin;
+	border-radius: 2%;
+}
+
+.page-content{
+	margin-top: 5%;
+} 
+.table{
+	overflow-y:auto;
+}
+
+.form-content{
+	height: 100vh;
+}
+
+.date-div{
+	z-index: 999999;
+}
+
+.btn{
+
+	margin-bottom: 10%;
+}
+
+
+@media (max-width: 1200px) {
+	.dashboard-pan{ 
+
+		border-radius:2%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.dashboard-pan{ 
+
+		border-radius:2%;
+	}
+}
+
+@media (max-width: 800px) {
+	.dashboard-pan{ 
+
+		border-radius:2%;
+	}
+}
+
+@media (max-width: 600px) {
+	.dashboard-pan{ 
+		border-radius:2%;
+	}
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	.form-content{
+	height: 800vh;
+	}
+	
+	.dashboard-pan{
+	display: none;
+	background-color: white;
+	margin-top: 5px;
+	height: 800vh;
+	border:thin;
+	border-radius: 2%;
+	}
+
+}

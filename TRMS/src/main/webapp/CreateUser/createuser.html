@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TRSM - Create Account</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="createuser.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+  <script src="createuser.js"></script>
+</head>
+<body class="bg">
+<nav class="navbar navbar-inverse">
+  <div class="main-container container-fluid text-center">
+    <div class="navbar-header">
+      
+      <a class="navbar-brand" href="/TRMS/login.html">TRMS</a>
+    </div>
+	<h2 id="lab-title-page">Create New Account</h2> 
+     
+  </div>
+</nav>
+	<form method="post" class="form-group create-user-pan container-fluid text-center" action="\TRMS\ReUsFo" enctype="multipart/form-data" id="create-user" data-toggle="validator">  
+		<div class="row">
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-first-name" class="control-label" for="first-name">First Name : </label>
+					<input class="input form-control input-txt" name="first-name" id="first-name" size="50" placeholder="first name" pattern="^[a-zA-Z]{1,}$" title="First and last name must consist of only letters" maxlength="50" required>
+			</div>
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-last-name" class="control-label" for="last-name">Last Name : </label>
+					<input class="input form-control input-txt" name="last-name" id="last-name" size="50" placeholder="last name" pattern="^[a-zA-Z]{1,}$" title="First and last name must consist of only letters" maxlength="50" required>	
+			</div>
+		</div>
+		
+		<div class="row ">
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-username" class="control-label" for="username">Username : </label>
+					<input class="input form-control input-txt" name="username "id="username" size="50" placeholder="username" pattern="^[a-zA-Z0-9]{1,}$" title="Username can only contain characters a-z and numebers 0-9" maxlength="50" required>
+			</div>
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-email" class="control-label" for="email">Email : </label>
+					<input class="input form-control email-txt" name="email" id="email" size="50" placeholder="example@gmail.com" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="emailexample@email.com" required>	
+			</div>
+		</div>
+		
+		<div class="row ">
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-password" class="control-label" for="password">Password : </label>
+					<input type="password" class="input form-control password-txt" size="50" name="password" id="password" placeholder="password" required>
+			</div>
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-verify-password" class="control-label" for="verify-password">Verify Password : </label>
+					<input type="password" class="input form-control verify-password-txt" size="50" id="verify-password" placeholder="verify password" data-match="#password" data-match-error="Whoops, passwords do not match." required>
+			</div>
+		</div>
+		 
+		<div class="row ">
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-emp-id" class="control-label" for="emp-id">Employee Id: </label>
+					<input class="input form-control emp-id-txt" name="emp-id" id="emp-id" size="50" placeholder="enter your employee id" pattern="[0-9]+" title="Employee number given to you by the company." required>
+			</div>
+			<div class="col-comp form-group col-lg-6 col-md-12 col-sm-12 has-feedback">
+					<label id="lab-verification-code" class="control-label" for="verification-code">Activation Code : </label>
+					<input class="input form-control verification-code-txt" name="verification-code" id="verification-code" size="50" placeholder="check your email" required>
+			</div>
+		</div>
+		
+		<div class="row ">
+			<div class="col-lg-12 col-md-12 col-sm-12"> 
+				<input type="submit" class="btn btn-success btn-primary btn-submit login-component" value="Save">
+			</div> 
+		</div>
+	</form>
+</body>
+</html>

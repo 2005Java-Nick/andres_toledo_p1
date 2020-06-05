@@ -1,0 +1,99 @@
+
+body {
+  height: 100%;
+  background-image: url("/TRMS/img/bg.jpg");
+  background-size: cover;
+}
+
+
+.lab-dashboard{
+	color: #3c8a99;
+}
+
+.navbar-inverse{
+	background-color: #3c8a99;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+} 
+
+.navbar-inverse .navbar-brand {
+    color: white; 
+}
+
+.nav
+{
+	color: white;
+}
+
+.create-user-pan{
+	width:30%;
+	background-color: white;
+	margin-top: 5px;
+	border:solid;
+	border-color:#3c8a99;
+	border-radius:10%;
+}
+
+#create-user
+{
+	margin-top: 5%;
+}
+
+.row{
+	margin-top: 5%;	
+}
+
+.page-content{
+	margin-top: 5%;
+} 
+
+.input{
+	width: 100%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.col-comp{
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.btn{
+	width: 85%;
+	margin-bottom: 10%;
+}
+
+#lab-title-page
+{
+	color: white;
+}
+
+@media (max-width: 1200px) {
+	.create-user-pan{ 
+		width: 40%;
+		border-radius:2%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.create-user-pan{ 
+		width: 60%;
+		border-radius:2%;
+	}
+}
+
+@media (max-width: 800px) {
+	.create-user-pan{ 
+		width: 80%;
+		border-radius:2%;
+	}
+}
+
+@media (max-width: 600px) {
+	.create-user-pan{ 
+		width: 100%;
+		border-radius:2%;
+	}
+}
